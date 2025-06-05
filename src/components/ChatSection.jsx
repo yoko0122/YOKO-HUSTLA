@@ -24,7 +24,7 @@ function ChatSection() {
         <p className="text-gray-300 mt-2">Start a conversation with our AI assistant</p>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6 space-y-4">
+      <div className="flex-1 p-6 space-y-4">
         {messages.map((message) => (
           <div
             key={message.id}
