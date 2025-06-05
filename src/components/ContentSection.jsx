@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Plus, User, FileText } from 'lucide-react';
 
@@ -31,10 +30,10 @@ function ContentSection({ submissions, onCreateSubmission }) {
   return (
     <div className="p-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-900">Content</h1>
+        <h1 className="text-3xl font-bold text-white">Content</h1>
         <button
           onClick={() => setShowForm(true)}
-          className="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+          className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 text-white text-sm font-medium rounded-md hover:from-blue-800 hover:via-indigo-800 hover:to-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors shadow-lg"
         >
           <Plus className="w-4 h-4 mr-2" />
           Create
@@ -93,30 +92,29 @@ function ContentSection({ submissions, onCreateSubmission }) {
       )}
 
       <div className="space-y-4">
-        {submissions.length === 0 ? (
+        {submissions.length === 0 && (
           <div className="text-center py-12">
-            <FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No submissions yet</h3>
-            <p className="text-gray-600">Click the "Create" button to add your first submission.</p>
+            <FileText className="mx-auto mb-4 w-12 h-12 text-gray-500" />
+            <p className="text-lg text-white">No submissions yet</p>
+            <p className="text-gray-400">Start by creating your first submission.</p>
           </div>
-        ) : (
-          submissions.map((submission) => (
-            <div key={submission.id} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0">
-                  <User className="w-6 h-6 text-gray-400" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-medium text-gray-900 mb-2">{submission.name}</h3>
-                  <p className="text-gray-600 mb-3">{submission.systemInstructions}</p>
-                  <p className="text-sm text-gray-500">
-                    Created on {submission.createdAt.toLocaleDateString()} at {submission.createdAt.toLocaleTimeString()}
-                  </p>
-                </div>
+        )}
+        {submissions.map((submission) => (
+          <div key={submission.id} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="flex items-start space-x-3">
+              <div className="flex-shrink-0">
+                <User className="w-6 h-6 text-gray-400" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-medium text-gray-900 mb-2">{submission.name}</h3>
+                <p className="text-gray-600 mb-3">{submission.systemInstructions}</p>
+                <p className="text-sm text-gray-500">
+                  Created on {submission.createdAt.toLocaleDateString()} at {submission.createdAt.toLocaleTimeString()}
+                </p>
               </div>
             </div>
-          ))
-        )}
+          </div>
+        ))}
       </div>
     </div>
   );

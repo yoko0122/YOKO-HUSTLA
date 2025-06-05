@@ -18,10 +18,10 @@ function ChatSection() {
   ];
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="p-6 border-b border-gray-200 bg-white">
-        <h1 className="text-3xl font-bold text-gray-900">Chat</h1>
-        <p className="text-gray-600 mt-2">Start a conversation with our AI assistant</p>
+    <div className="flex flex-col h-full bg-gray-900 rounded-xl shadow-lg">
+      <div className="p-6 border-b border-gray-800 bg-gray-900 rounded-t-xl">
+        <h1 className="text-3xl font-bold text-white">Chat</h1>
+        <p className="text-gray-300 mt-2">Start a conversation with our AI assistant</p>
       </div>
 
       <div className="flex-1 overflow-y-auto p-6 space-y-4">
@@ -44,12 +44,12 @@ function ChatSection() {
               className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
                 message.sender === 'user'
                   ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-900'
+                  : 'bg-gray-800 text-gray-100'
               }`}
             >
               <p className="text-sm">{message.text}</p>
               <p className={`text-xs mt-1 ${
-                message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
+                message.sender === 'user' ? 'text-blue-200' : 'text-gray-400'
               }`}>
                 {message.timestamp.toLocaleTimeString()}
               </p>
@@ -57,7 +57,7 @@ function ChatSection() {
 
             {message.sender === 'user' && (
               <div className="flex-shrink-0">
-                <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
                   <User className="w-4 h-4 text-white" />
                 </div>
               </div>
@@ -66,12 +66,12 @@ function ChatSection() {
         ))}
       </div>
 
-      <div className="p-6 bg-white border-t border-gray-200">
+      <div className="p-6 bg-gray-900 border-t border-gray-800 rounded-b-xl">
         <form className="flex space-x-3">
           <input
             type="text"
             placeholder="Type your message..."
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="flex-1 px-4 py-2 border border-gray-700 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
             enabled
           />
           <button
