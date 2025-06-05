@@ -18,7 +18,7 @@ function ChatSection() {
   ];
 
   return (
-    <div className="flex flex-col h-full bg-gray-900 rounded-xl shadow-lg">
+    <div className="flex flex-col h-[80vh] bg-gray-900 rounded-xl shadow-lg">
       <div className="p-6 border-b border-gray-800 bg-gray-900 rounded-t-xl">
         <h1 className="text-3xl font-bold text-white">Chat</h1>
         <p className="text-gray-300 mt-2">Start a conversation with our AI assistant</p>
